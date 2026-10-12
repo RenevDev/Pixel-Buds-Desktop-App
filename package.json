@@ -1,0 +1,18 @@
+{
+  "name": "pixel-buds",
+  "version": "1.0.0",
+  "description": "Unofficial Pixel Buds desktop companion for Windows",
+  "author": "Renev. <info@renev.nl>",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "cargo run --manifest-path src-tauri/Cargo.toml",
+    "dev": "tauri dev",
+    "build": "tauri build",
+    "tauri": "tauri"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2"
+  }
+}

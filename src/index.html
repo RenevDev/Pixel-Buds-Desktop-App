@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pixel Buds Companion & Diagnostics</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <div class="app-wrapper">
+      <header class="header">
+        <div class="logo-group">
+          <div class="pixel-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+              <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
+            </svg>
+          </div>
+          <div>
+            <h1>Pixel Buds Desktop</h1>
+            <p class="subtitle">Tauri + Rust Companion Environment</p>
+          </div>
+        </div>
+        <div class="header-actions">
+          <button id="btn-open-pixelbuds" class="btn btn-primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+            Open mypixelbuds.google.com
+          </button>
+        </div>
+      </header>
+
+      <main class="content">
+        <section class="card status-overview">
+          <h2>Environment & Capabilities Check</h2>
+          <p class="section-desc">Verificatie van Web Bluetooth, User-Agent identificatie en WebView2 runtime instellingen.</p>
+
+          <div class="grid">
+            <div class="metric-card">
+              <div class="metric-header">
+                <span class="metric-title">Web Bluetooth API</span>
+                <span id="badge-bluetooth" class="badge badge-pending">Checking...</span>
+              </div>
+              <p id="desc-bluetooth" class="metric-value">Evaluating navigator.bluetooth...</p>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-header">
+                <span class="metric-title">Bluetooth Radio Hardware</span>
+                <span id="badge-radio" class="badge badge-pending">Checking...</span>
+              </div>
+              <p id="desc-radio" class="metric-value">Checking adapter availability...</p>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-header">
+                <span class="metric-title">Chrome User-Agent Mask</span>
+                <span id="badge-ua" class="badge badge-success">Configured</span>
+              </div>
+              <p id="desc-ua" class="metric-value mono">Reading...</p>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-header">
+                <span class="metric-title">Permissions Policy</span>
+                <span class="badge badge-success">Auto-Allowed</span>
+              </div>
+              <p class="metric-value">Tauri Rust on_permission_request is active</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="card test-section">
+          <h2>Bluetooth Device Pairing Test</h2>
+          <p class="section-desc">
+            Test of de browser de Bluetooth-kiezer kan openen en verbinding kan maken met BLE-apparaten (zoals Google Pixel Buds).
+          </p>
+          <div class="actions-row">
+            <button id="btn-scan" class="btn btn-secondary">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon">
+                <circle cx="12" cy="12" r="9"></circle>
+                <path d="m4.93 4.93 4.24 4.24"></path>
+                <path d="m14.83 9.17 4.24-4.24"></path>
+                <path d="m14.83 14.83 4.24 4.24"></path>
+                <path d="m9.17 14.83-4.24 4.24"></path>
+              </svg>
+              Scan for Bluetooth Devices (BLE)
+            </button>
+            <button id="btn-recheck" class="btn btn-outline">Re-check System</button>
+          </div>
+
+          <div id="log-box" class="log-box">
+            <div class="log-header">
+              <span>Diagnostics Log</span>
+              <button id="btn-clear-log" class="btn-text">Clear</button>
+            </div>
+            <div id="log-content" class="log-content">
+              [System] Diagnostics engine ready.<br>
+            </div>
+          </div>
+        </section>
+
+        <section class="card help-section">
+          <h3>Instructies voor Pixel Buds op Windows:</h3>
+          <ul class="help-list">
+            <li><strong>Bluetooth aanzetten:</strong> Zorg dat Bluetooth in Windows Instellingen ingeschakeld staat.</li>
+            <li><strong>Pairing modus:</strong> Open de case van de Pixel Buds en houd de knop aan de achterkant 3 seconden ingedrukt tot het lampje wit pulseert.</li>
+            <li><strong>Web Companion:</strong> Klik op de knop <em>Open mypixelbuds.google.com</em> hierboven of navigeer via het menu <em>Pixel Buds &gt; Open Pixel Buds Web</em>.</li>
+          </ul>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
